@@ -1,5 +1,6 @@
-class Palindrome{
-    public String longestPalindrome(String s) {
+import java.util.*;
+class LP{
+    public static String longestPalindrome(String s) {
         if(s.length()<2) {
             return s;
         }
@@ -25,6 +26,12 @@ class Palindrome{
         return s.substring(start,start+max);
         
     }
+    public static void main(String[] args) {
+    	LP p = new LP();
+    	Scanner sc=new Scanner(System.in);
+        String str = sc.next();
+        System.out.println("String: " + str);
+        System.out.println("Longest Palindromic Substring:" +longestPalindrome(str));
 }
-
+}
 
