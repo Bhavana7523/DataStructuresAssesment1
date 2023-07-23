@@ -20,32 +20,32 @@ public class MissingNumbersInArray {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter the number of elements in the array: ");
-        int n = scanner.nextInt();
-        int[] arrNum = new int[n];
+        int length = scanner.nextInt();
+        int[] Number1 = new int[n];
 
-        System.out.println("Enter " + n + " integers:");
-        for (int i = 0; i < n; i++) {
-            arrNum[i] = scanner.nextInt();
+        System.out.println("Enter " + length + " integers:");
+        for (int i = 0; i < length; i++) {
+            Number1[i] = scanner.nextInt(length);
         }
 
         System.out.println("Missing numbers in the array:");
-        findAndPrintMissingNumbers(arrNum);
+            PMN(Number1);
     }
 
-    private static void findAndPrintMissingNumbers(int[] arr) {
-        int expectedNumber = arr[0];
-        int index = 0;
+    public static void PMN(int[] arr18) {
+        int eN = arr18[0];
+        int i= 0;
 
-        while (index < arr.length) {
-            if (arr[index] != expectedNumber) {
-                System.out.print(expectedNumber);
-                if (index <arr.length-1) {
+        while (i < arr18.length) {
+            if (arr[i] != eN) {
+                System.out.print(eN);
+                if (i <arr18.length-1) {
                     System.out.print(" , ");
                 }
             } else {
-                index++;
+                i++;
             }
-            expectedNumber++;
+            eN++;
         }
     }
 }
