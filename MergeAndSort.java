@@ -23,68 +23,68 @@ public class MergeAndSort {
 
         // Method to merge two linked lists
         void merge(LinkedList list1, LinkedList list2) {
-            Node current1 = list1.head;
-            Node current2 = list2.head;
-            Node merged = null;
+            Node c1 = list1.head;
+            Node c2 = list2.head;
+            Node mer = null;
             Node tail = null;
 
-            while (current1 != null && current2 != null) {
-                if (current1.data <= current2.data) {
-                    if (merged == null) {
-                        merged = current1;
-                        tail = current1;
+            while (c1 != null && c2 != null) {
+                if (c1.data <= c2.data) {
+                    if (mer == null) {
+                        mer = c1;
+                        tail = c1;
                     } else {
-                        tail.next = current1;
+                        tail.next = c1;
                         tail = tail.next;
                     }
-                    current1 = current1.next;
+                    c1 = c1.next;
                 } else {
-                    if (merged == null) {
-                        merged = current2;
-                        tail = current2;
+                    if (mer == null) {
+                        mer = c2;
+                        tail = c2;
                     } else {
-                        tail.next = current2;
+                        tail.next = c2;
                         tail = tail.next;
                     }
-                    current2 = current2.next;
+                    c2 = c2.next;
                 }
             }
 
-            if (current1 != null) {
-                tail.next = current1;
+            if (c1 != null) {
+                tail.next = c1;
             } else {
-                tail.next = current2;
+                tail.next = c2;
             }
 
-            this.head = merged;
+            this.head = mer;
         }
 
         // Method to perform merge sort on the linked list
-        Node mergeSort(Node head) {
+        Node mS(Node head) {
             if (head == null || head.next == null) {
                 return head;
             }
 
-            Node middle = findMiddle(head);
+            Node middle = fM(head);
             Node nextOfMiddle = middle.next;
             middle.next = null;
 
-            Node left = mergeSort(head);
-            Node right = mergeSort(nextOfMiddle);
+            Node left = mS(head);
+            Node right = mS(nextOfMiddle);
 
             return mergeSortedLists(left, right);
         }
 
-        Node findMiddle(Node head) {
-            Node slowPtr = head;
-            Node fastPtr = head;
+        Node fM(Node head) {
+            Node sP = head;
+            Node fP = head;
 
-            while (fastPtr.next != null && fastPtr.next.next != null) {
-                slowPtr = slowPtr.next;
-                fastPtr = fastPtr.next.next;
+            while (fP.next != null && fP.next.next != null) {
+                sP = sP.next;
+                fP = fP.next.next;
             }
 
-            return slowPtr;
+            return sP;
         }
 
         Node mergeSortedLists(Node a, Node b) {
@@ -153,7 +153,7 @@ public class MergeAndSort {
         mergedList.merge(list1, list2);
 
         // Performing merge sort on the merged list
-        mergedList.head = mergedList.mergeSort(mergedList.head);
+        mergedList.head = mergedList.mS(mergedList.head);
 
         System.out.print("Output: ");
         mergedList.display();
