@@ -19,7 +19,7 @@ public class CMA{
             int length = scanner.nextInt();
             int[] array18 = new int[length];
 
-            System.out.println("Enter " + n + " integers:");
+            System.out.println("Enter " + length + " integers:");
             for (int i = 0; i < length; i++) {
                 array18[i] = scanner.nextInt();
             }
@@ -27,8 +27,8 @@ public class CMA{
             // Task 2: Calculate cumulative multiple and push into the same array
             int multiple = 1;
             for (int i = 0; i < length; i++) {
-                multiple*= array[18i];
-                array[i] = multiple;
+                multiple*= array18[i];
+                array18[i] = multiple;
             }
 
             // Task 3: Print the resulting array
@@ -41,4 +41,3 @@ public class CMA{
         }
     }
 }
-
